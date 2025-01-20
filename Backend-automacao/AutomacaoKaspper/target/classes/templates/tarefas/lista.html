@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/tarefa.css">
+    <title>Listagem de Tarefas</title>
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <p><a href="/tarefas/novo">Cadastrar nova</a></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Serviço</th>
+                    <th>Descrição</th>
+                    <th>Valor/Hora</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="tarefa : ${tarefas}">
+                    <td th:text="${tarefa.id}"></td>
+                    <td th:text="${tarefa.servico.descricao}"></td>
+                    <td th:text="${tarefa.descricao}"></td>
+                    <td th:text="${#numbers.formatCurrency(tarefa.valorHora)}"></td>
+                    <td>
+                        <span th:text="${tarefa.status.descricao}"
+                              th:class="'status ' + ${#strings.toLowerCase(tarefa.status.name())}">
+                        </span>
+                    </td>
+                    <td>
+                        <a th:href="@{/tarefas/editar/{id}(id=${tarefa.id})}" class="btn-editar">Editar</a>
+                        <a th:href="@{/tarefas/deletar/{id}(id=${tarefa.id})}" class="btn-deletar">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

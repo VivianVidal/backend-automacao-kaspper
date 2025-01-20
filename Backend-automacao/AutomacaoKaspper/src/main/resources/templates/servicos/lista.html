@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/servico.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Serviços</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Serviços</h1>
+        <p><a href="/servicos/novo">Cadastrar novo</a></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Empresa</th>
+                    <th>Descrição</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="servico : ${servicos}">
+                    <td th:text="${servico.id}"></td>
+                    <td th:text="${servico.empresa.nomeEmpresa}"></td>
+                    <td th:text="${servico.descricao}"></td>
+                    <td>
+                        <span th:text="${servico.status.descricao}"
+                              th:class="'status ' + ${#strings.toLowerCase(servico.status.name())}">
+                        </span>
+                    </td>
+                    <td>
+                        <a th:href="@{/servicos/editar/{id}(id=${servico.id})}" class="btn-editar">Editar</a>
+                        <a th:href="@{/servicos/deletar/{id}(id=${servico.id})}" class="btn-deletar">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

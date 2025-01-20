@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+.btn-editar,
+.btn-deletar {
+    padding: 6px 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px;
+}
+
+.btn-editar {
+    background-color: #4CAF50;
+}
+
+.btn-editar:hover {
+    background-color: #45a049;
+}
+
+.btn-deletar {
+    background-color: #f44336;
+}
+
+.btn-deletar:hover {
+    background-color: #e53935;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+}
+
+.pendente {
+    background-color: #ff9800;
+}
+
+.em-andamento {
+    background-color: #2196F3;
+}
+
+.concluida {
+    background-color: #4CAF50;
+}

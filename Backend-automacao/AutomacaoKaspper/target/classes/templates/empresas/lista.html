@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="/css/empresa.css">
+    <title>Listagem de Empresas</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Empresas</h1>
+        <p><a href="/empresas/novo">Cadastrar nova</a></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome Empresa</th>
+                    <th>CNPJ</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="empresa : ${empresas}">
+                    <td th:text="${empresa.id}"></td>
+                    <td th:text="${empresa.nomeEmpresa}"></td>
+                    <td th:text="${empresa.cnpj}"></td>
+                    <td th:text="${empresa.email}"></td>
+                    <td th:text="${empresa.telefone}"></td>
+                    <td>
+                        <a th:href="@{/empresas/editar/{id}(id=${empresa.id})}" class="btn-editar">Editar</a>
+                        <a th:href="@{/empresas/deletar/{id}(id=${empresa.id})}" class="btn-deletar">Deletar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
